@@ -88,6 +88,10 @@ function displayBooks() {
         const delet = document.createElement("button");
         delet.textContent = "Delete";
         status.textContent = book.isRead ? "Read" : "Not Read";
+        if(status.textContent==="Read")
+            status.classList.add("read");
+        else status.classList.add("nread")
+        delet.classList.add("delete");
         function fStatus() {
             book.changeStatus();
             saveLocal();
