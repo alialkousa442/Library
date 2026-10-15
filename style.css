@@ -101,3 +101,6 @@ input:user-invalid {
   background-color: #fdf2f2;
   outline: none;
 }
+.error{
+  color: red;
+}
