@@ -67,6 +67,24 @@ Cancel.addEventListener("click", closeModal)
 
 function readForm(e) {
     e.preventDefault();
+    let hasError=false;
+    if (title.validity.valueMissing){
+        errorTitle.textContent="اكتب عنوان الكتاب";
+        hasError=true;
+    }
+    else errorTitle.textContent="";
+
+    if (author.validity.valueMissing) {
+        errorAuthor.textContent="اكتب اسم الكاتب";
+        hasError=true;
+    }
+    else errorAuthor.textContent=""
+    if (hasError==true) {
+        return;
+    }
+        
+    
+
     const nTitle = title.value;
     const nAuthor = author.value;
     const nNumber = number.value;
@@ -126,9 +144,20 @@ function displayBooks() {
 
     })
 }
-
-
-
+const errorTitle=document.querySelector('#error_title');
+title.addEventListener('blur',()=>{
+    if (title.validity.valueMissing) {
+        errorTitle.textContent="اكتب عنوان الكتاب"
+    }
+    else errorTitle.textContent="";
+})
+const errorAuthor=document.querySelector('#error_author');
+author.addEventListener('blur',()=>{
+    if (author.validity.valueMissing) {
+        errorAuthor.textContent="اكتب اسم الكاتب";
+    }
+    else errorAuthor.textContent="";
+})
 
 
 
